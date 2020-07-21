@@ -30,6 +30,11 @@ xcodegen
 
 Open the xcodeproj, build and run.
 
+# Steps to port an iOS App to MacOS Using Catalyst
+- Go to Project Navigator | General Tab, and just enable the macOS checkbox
+- Go to Signing and Capabilities, and enable any permissions (e.g., file read/write) you need to for your use case
+- Just build it with Mac set as the target
+
 # License
 
 MIT License
