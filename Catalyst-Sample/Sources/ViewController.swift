@@ -9,18 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var passwordLabel: UILabel!
-    @IBOutlet weak var tokenLabel: UILabel!
-    @IBOutlet weak var SignInButton: UIButton!
-
+    let loginViewCtrl = LoginViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    }
-
-    @IBAction func signIn(sender: AnyObject) {
-        print("SignIn")
+        
+        self.view.addSubview(loginViewCtrl.view)
     }
 
 }
