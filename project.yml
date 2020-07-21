@@ -1,0 +1,55 @@
+name: Catalyst-Sample
+options:
+  minimumXcodeGenVersion: 2.2.0
+  createIntermediateGroups: true
+targets:
+  #macOS application
+  Catalyst-Sample:
+    platform: iOS
+    type: application
+    sources:
+      - Catalyst-Sample
+    dependencies:
+      - target: AppCore
+    configFiles:
+      Debug: configs/Catalyst-Sample-Debug.xcconfig
+      Release: configs/Catalyst-Sample-Release.xcconfig
+    scheme:
+      environmentVariables:
+        ENABLE_SIGNPOST: YES
+  # Framework Targets
+  AppCore:
+    platform: iOS
+    type: framework
+    sources:
+      - AppCore
+    configFiles:
+      Debug: configs/AppCore-Debug.xcconfig
+      Release: configs/AppCore-Release.xcconfig
+  #Test Targets
+  Catalyst-SampleTests:
+    platform: iOS
+    type: bundle.unit-test
+    configFiles:
+      Debug: configs/Catalyst-SampleTests.xcconfig
+    sources:
+      - Tests/Catalyst-SampleTests
+    dependencies:
+      - target: Catalyst-Sample
+    scheme:
+      testTargets:
+        - Catalyst-SampleTests
+      gatherCoverageData: true
+  AppCoreTests:
+    platform: iOS
+    type: bundle.unit-test
+    configFiles:
+      Debug: configs/AppCoreTests.xcconfig
+    sources:
+      - Tests/AppCoreTests
+    dependencies:
+      - target: AppCore
+    scheme:
+      testTargets:
+        - AppCoreTests
+      gatherCoverageData: true
