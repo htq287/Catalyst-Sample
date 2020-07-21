@@ -20,7 +20,7 @@ targets:
   # Framework Targets
   AppCore:
     platform: iOS
-    type: framework
+    type: library.static
     sources:
       - AppCore
     configFiles:
